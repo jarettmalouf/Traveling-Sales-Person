@@ -1,0 +1,223 @@
+
+Final test script for TSP (10/20/2019)
+
+***** Checking for warning messages *****
+Making -B ./TSP
+gcc -g3 -std=c99 -pedantic -Wall -lm -c  TSP.c
+gcc -g3 -std=c99 -pedantic -Wall -lm -c  location.c
+gcc -g3 -std=c99 -pedantic -Wall -lm -o TSP TSP.o location.o
+
+Each test is either passed or failed; there is no partial credit.
+
+
+           Basic Tests (30 points)
+PASSED  001. Nearest
+PASSED  002. Nearest, alternate input
+PASSED  003. Insert nearest
+PASSED  004. Insert nearest, alternate input
+PASSED  005. Insert nearest, reversed alternate
+PASSED  006. Insert farthest
+PASSED  007. Insert farthest, alternate input
+PASSED  008. Insert farthest, reversed alternate
+
+           Basic Tests (30 points): 30 points
+
+           Special cases (10 points)
+PASSED  009. Insert nearest with poles
+PASSED  010. Insert farthest with poles
+PASSED  011. Two cities, nearest
+PASSED  012. Two cities, insert nearest
+PASSED  013. Two cities, insert farthest
+PASSED  014. Two airports at same location
+PASSED  015. Two pairs of airports at same location
+
+           Special cases (10 points): 10 points
+
+           Ties (5 points)
+PASSED  016. Nearest with ties
+PASSED  017. Insert nearest with tied starting points
+PASSED  018. Insert nearest with tied next points
+PASSED  019. Insert farthest with tied starting points
+PASSED  020. Insert farthest with tied next points
+
+           Ties (5 points): 5 points
+
+           Multiple Methods (10 points)
+PASSED  021. All methods
+PASSED  022. All methods, Connecticut
+PASSED  023. Insert nearest Insert farthest
+PASSED  024. Insert farthest Insert nearest
+PASSED  025. Nearest Insert nearest Insert farthest
+PASSED  026. Optimal twice
+PASSED  027. Repeats
+PASSED  028. More repeats
+PASSED  029. No methods
+
+           Multiple Methods (10 points): 10 points
+
+           Long lists of cities (5 points)
+PASSED  030. 512 cities
+PASSED  031. 1001 cities
+
+           Long lists of cities (5 points): 5 points
+
+           Error messages (20 points)
+PASSED  032. No arguments
+PASSED  033. File not found
+0a1
+> -nearest 
+Error: STDOUT differs from expected
+FAILED  034. No cities
+PASSED  035. One city
+PASSED  036. Invalid method first
+PASSED  037. Invalid method last
+PASSED  038. Missing insert argument but interpreted as invalid criterion
+PASSED  039. Missing insert argument last
+PASSED  040. Invalid insert argument first
+PASSED  041. Invalid insert argument last
+PASSED  042. Empty method
+PASSED  043. Abbreviated nearest
+PASSED  044. Abbreviated farthest
+PASSED  045. UPPER CASE METHOD
+PASSED  046. UPPER CASE CRITERION
+PASSED  047. Empty string for insert argument
+PASSED  048. Empty string elsewhere
+
+           Error messages (20 points): 18 points
+
+           Multiple errors (5 points)
+PASSED  049. Multiple invalid methods
+PASSED  050. Multiple invalid insert arguments
+PASSED  051. invalid method and insert argument
+PASSED  052. Invalid insert argument and method
+PASSED  053. Invalid method and missing insert argument
+PASSED  054. Invalid and missing insert argument
+PASSED  055. File not found and invalid method
+PASSED  056. File not found and invalid criterion
+PASSED  057. File not found and missing criterion
+
+           Multiple errors (5 points): 5 points
+
+           Multiple including too few cities (0 points)
+PASSED  058. Too few cities and invalid method
+PASSED  059. Too few cities and invalid criterion
+PASSED  060. Too few cities and missing criterion
+
+           Multiple including too few cities (0 points): 0 points
+
+           Other Invalid (15 points)
+PASSED  061. Nearest, duplicate city
+PASSED  062. Insert nearest, duplicate city
+PASSED  063. Insert farthest, duplicate city
+PASSED  064. Same city
+PASSED  065. number of cities is not a number
+PASSED  066. number of cities has extra spaces
+PASSED  067. number of cities has extra data
+PASSED  068. long city names
+PASSED  069. short city names
+PASSED  070. extra spaces for city names
+PASSED  071. too many city names
+PASSED  072. too few city names
+PASSED  073. too many coordinates
+PASSED  074. too few coordinates
+PASSED  075. blank line for number of cities
+PASSED  076. blank line for city names
+PASSED  077. blank line in coordinates
+PASSED  078. extra whitespace in coordinates
+PASSED  079. non-numeric values in latitude
+PASSED  080. non-numeric values in longitude
+PASSED  081. latitude out of range
+PASSED  082. longitude out of range
+PASSED  083. extra coordinates
+PASSED  084. very long line for city count
+PASSED  085. very long line for city names
+PASSED  086. very long line for coordinates
+PASSED  087. empty input file
+PASSED  088. EOF after city count
+PASSED  089. EOF after city names
+PASSED  090. EOF in coordinates
+
+           Other Invalid (15 points): 15 points
+
+           Optimal (0 points)
+PASSED  091. 2 cities
+1c1
+< -optimal        :  47913.80 BWI LHR TXL JNB SYD EZE SJU KIN BWI
+---
+> -optimal        :  77593.74 BWI TXL LHR SYD KIN JNB SJU EZE BWI
+Error: STDOUT differs from expected
+FAILED  092. 8 cities
+1c1
+< -optimal        :  50238.84 BWI LHR TXL FCO CAI JNB SYD AKL EZE GRU SJU KIN BWI
+---
+> -optimal        : 115681.60 BWI TXL LHR SYD KIN JNB SJU CAI FCO AKL GRU EZE BWI
+Error: STDOUT differs from expected
+FAILED  093. 12 cities
+1c1
+< -optimal        :  56511.67 BWI TXL FCO CAI CPT JNB SIN SYD AKL SCL GRU SJU KIN BWI
+---
+> -optimal        :  99596.24 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT BWI
+Error: STDOUT differs from expected
+FAILED  094. 13 cities
+1c1
+< -optimal        :  58297.37 BWI TXL FCO CAI CPT JNB SIN SYD AKL SCL GRU SJO KIN SJU BWI
+---
+> -optimal        : 102019.64 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT SJO BWI
+Error: STDOUT differs from expected
+FAILED  095. 14 cities
+1c1
+< -optimal        :  58453.40 BWI TXL ZRH FCO CAI CPT JNB SIN SYD AKL SCL GRU SJO KIN SJU BWI
+---
+> -optimal        : 114726.79 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT SJO ZRH BWI
+Error: STDOUT differs from expected
+FAILED  096. 15 cities
+1c1
+< -optimal        :  58550.55 BWI TXL ZRH FCO CAI BEI JNB CPT SIN SYD AKL SCL GRU SJO KIN SJU BWI
+---
+> -optimal        : 124114.08 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT SJO ZRH BEI BWI
+Error: STDOUT differs from expected
+FAILED  097. 16 cities
+1c1
+< -optimal        :  62189.81 BWI TXL ZRH FCO CAI BEI JNB CPT SIN HKG SYD AKL SCL GRU SJO KIN SJU BWI
+---
+> -optimal        : 134633.46 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT SJO ZRH BEI HKG BWI
+Error: STDOUT differs from expected
+FAILED  098. 17 cities
+1c1
+< -optimal        :  63548.73 BWI KIN SJO PPT AKL SYD SIN HKG TXL ZRH FCO CAI BEI JNB CPT GRU SCL SJU BWI
+---
+> -optimal        : 142738.25 BWI TXL SIN SYD AKL SCL GRU KIN JNB SJU CAI FCO CPT SJO ZRH BEI HKG PPT BWI
+Error: STDOUT differs from expected
+FAILED  099. 18 cities
+1,2c1,2
+< -optimal        :  47913.80 BWI LHR TXL JNB SYD EZE SJU KIN BWI
+< -optimal        :  47913.80 BWI LHR TXL JNB SYD EZE SJU KIN BWI
+---
+> -optimal        :  77593.74 BWI TXL LHR SYD KIN JNB SJU EZE BWI
+> -optimal        :  77593.74 BWI TXL LHR SYD KIN JNB SJU EZE BWI
+Error: STDOUT differs from expected
+FAILED  100. Optimal twice
+
+           Optimal (0 points): 1 points
+
+           Remove credit for optimal
+
+           Remove credit for optimal: -1 points
+
+               Deductions for Violating Specification (0 => no violation)
+
+End of Public Script
+
+ 98 points Total for TSP
+
+           Possible Deductions (assessed later as appropriate)
+               -10 Lacks comments, poor identifiers, bad spacing, etc.
+                -5 Does not make
+                -5 Makefile missing
+                -5 Makefile incorrect
+                -1 Log file incorrectly named
+                -1 Log file lacks estimated time
+                -1 Log file lacks total time
+                -1 Log file lacks statement of major difficulties
+                -1 Compilation errors using -Wall -std=c99 -pedantic
+

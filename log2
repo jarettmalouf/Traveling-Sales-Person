@@ -1,0 +1,25 @@
+ESTIMATE of time to complete assignment: 27 hours
+
+      Time     Time
+Date  Started  Spent Work completed
+----  -------  ----  --------------
+9/27  7:00pm   0:30  skimmed assignment.
+                     
+9/29  8:00pm   2:00  read through the assignment more seriously, created files in Terminal/Sublime and a skeleton of my source code.
+
+9/30  8:00pm   3:30  edited Makefile to compile with location.h, wrote code to read the file and produce errors for invalid inputs; have yet to test.
+
+10/1  8:00pm   13:00 patched up my issues with the invalid input cases; mapped out the structure and syntax of my -nearest, -insert nearest, and -insert farthest functions. completed my first draft of coding for them. -nearest does not output anything. the -insert functions do, but they are incorrect. worked largely on my own, so could not check my work as I went if/when I was having trouble outputting.
+
+10/3  7:00pm   2:30  tried to debug, left with more errors than I came
+
+10/4  2:30pm   3:30  debugged –– fixed all three functions, they test properly, but when running the submit/testit test, only some pass.
+
+10/6  7:00pm   2:00  finished debugging; passes 26/28 test cases (the final 2 were for the optional function, -optimal)
+
+               ----
+               27:00  TOTAL time spent
+
+I discussed my solution with Kevin Rono and David McCowin.
+
+This problem set really tested me. In the beginning, I had a lot of trouble figuring out exactly what each of the individual functions was asking of me. I was unsure how to wrap my head around the algorithms themselves, and the specific instructions of each part of the algorithm. When I spent an all-nighter trying to work through it, I thought I finally understood how the algorithms worked. However, I learned as I continued going to office hours that there were small, crucial mistakes in my understanding of how to code for the functions, that were impeding my ability to pass the test cases. I think if I had spent more time going through the spec with a TF, I would've saved myself a lot of trouble. Once I had coded -insert nearest, -insert farthest was a breeze. The final obstacle I ran was that I was outputting the proper distances, and thus the proper routes, but out of order and un-reversed. I deduced that it was a simple strcmp() vs. == problem, and things worked out all right.
